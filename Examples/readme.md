@@ -1,4 +1,4 @@
 ## Задача1 ##
 _Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее._
 
-[Блок схема](Examples\Exampl01\diagram1.png) | [Kod](Examples\Exampl01\Program.cs)
+[Блок схема](Exampl01\diagram1.png) | [Kod](Exampl01\Program.cs)
