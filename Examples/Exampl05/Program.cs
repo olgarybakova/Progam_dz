@@ -20,7 +20,7 @@ int GetCount(int value) // метод определения количеств�
     return result;
 }
 
-int  GenerAray(int Col, int number, int N)
+int GenerAray(int Col, int number, int N)  // метод создания массива из заданного числа
 {
     int[] array = new int[Col];
 
@@ -29,21 +29,32 @@ int  GenerAray(int Col, int number, int N)
     {
         array[i] = number % 10;
 
-        Console.WriteLine(array[i]);
+        //Console.WriteLine(array[i]);
         number = number / 10;
     }
-     return array[N];
+    return array[N];
 }
 
 Console.WriteLine("Введите целое  число");
 int num = Convert.ToInt32(Console.ReadLine());
 //Console.WriteLine(num+"/ ");
 int Count1 = GetCount(num); // узнали сколько цифр в числе
-
 Console.WriteLine($"всего цифр :{Count1}");
 
-int Res1 = GenerAray( Count1, num, 1);
+Console.WriteLine("Введите номер позиции цифры, заданного число, отсчет слева");
+int Num1 = Convert.ToInt32(Console.ReadLine());
+{
+    if (Num1 > 0 & Num1 <= Count1)
+       {
+         int Res1 = GenerAray(Count1, num, Num1 - 1);
 
-Console.WriteLine($"Позиция № 1 :{Res1}");
+         Console.WriteLine($"Позиция № :{Num1} в заданном числе: {num} -> {Res1}");
+       }
+        
+     else
+        {
+         Console.WriteLine("Задан не верный номер позиции ");
+        }
+    }
 
 
