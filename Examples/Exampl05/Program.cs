@@ -1,6 +1,9 @@
 ﻿// Задача 10: Вариант1.
 //Напишите программу, которая принимает на вход 
 //трёхзначное число и на выходе показывает вторую цифру этого числа
+// 456 -> 5
+//782 -> 8
+//918 -> 1
 // 1. Метод Считать количество цифр в числе
 // 2. Метод Генирировать массив размером сколько цифр в числе
 // 3.Ввести  число 
@@ -28,8 +31,6 @@ int GenerAray(int Col, int number, int N)  // метод создания мас
     for (int i = Col - 1; i >= 0; i--)
     {
         array[i] = number % 10;
-
-        //Console.WriteLine(array[i]);
         number = number / 10;
     }
     return array[N];
@@ -37,9 +38,7 @@ int GenerAray(int Col, int number, int N)  // метод создания мас
 
 Console.WriteLine("Введите целое  число");
 int num = Convert.ToInt32(Console.ReadLine());
-//Console.WriteLine(num+"/ ");
 int Count1 = GetCount(num); // узнали сколько цифр в числе
-Console.WriteLine($"всего цифр :{Count1}");
 
 Console.WriteLine("Введите номер позиции цифры, заданного числа, отсчет слева");
 int Num1 = Convert.ToInt32(Console.ReadLine());
@@ -48,7 +47,7 @@ int Num1 = Convert.ToInt32(Console.ReadLine());
        {
          int Res1 = GenerAray(Count1, num, Num1 - 1);
 
-         Console.WriteLine($"Позиция № :{Num1} в заданном числе: {num} -> {Res1}");
+         Console.WriteLine($"{num} -> {Res1}");
        }
         
      else
