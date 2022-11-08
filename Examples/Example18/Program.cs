@@ -48,7 +48,7 @@ double Max=array1[0];
     return Max;
  }
 
-void PrintAray(double[] aray)  // 4.метод печати массива 
+void PrintAray(double[] aray)  // метод печати массива 
 {
     int Num1 = aray.Length;
     {
@@ -69,7 +69,7 @@ int num = Convert.ToInt32(Console.ReadLine());
 double[] a = GenerAray(num); //создали пустой массив
 double[] b = FillAray(a); // заполнили случ. числами
 double min=MinArray(b); // нашли минимальный элемент массива
-double max=MaxArray(b); // нашли минимальный элемент массива
+double max=MaxArray(b); // нашли максимальный элемент массива
 PrintAray(b);
-Console.Write($" - >  {max-min}");
+Console.Write($" - >  {max-min}"); //разница между максимальным и минимальным
 
