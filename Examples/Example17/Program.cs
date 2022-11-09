@@ -18,8 +18,7 @@ int[] GenerAray(int Col)  // 1.метод создания массива из �
 
 int[] FillAray(int[] arr)  // 2.генерирования массива случайными  числами, пусть до 2-х значных
 {
-    int count = arr.Length;
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < arr.Length; i++)
     {
         arr[i] = Random.Shared.Next(-100, 100);
     }
@@ -30,25 +29,23 @@ int CountSum(int[] array) //3.Метод подсчета суммы элеме�
 {
     int count = array.Length;
     int Sum = 0;
-    if (count%2 !=0) count=count-1;
-    for (int i = 1; i < count; i+=2)
+    if (count % 2 != 0) count = count - 1;
+    for (int i = 1; i < count; i += 2)
     {
-        Sum+=array[i];
+        Sum += array[i];
     }
-   return Sum;
+    return Sum;
 }
 
 void PrintAray(int[] aray)  // 4.метод печати массива 
 {
-    int Num1 = aray.Length;
+    Console.Write("[");
+    for (int i = 0; i < aray.Length - 1; i++)
     {
-        Console.Write("[");
-        for (int i = 0; i < Num1 - 1; i++)
-        {
-            Console.Write($"{aray[i]}, ");
-        }
-        Console.Write($"{aray[Num1 - 1]}] ");
+        Console.Write($"{aray[i]}, ");
     }
+    Console.Write($"{aray[aray.Length - 1]}] ");
+
 }
 
 Console.Clear();
@@ -58,6 +55,6 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 int[] a = GenerAray(num); //создали пустой массив
 int[] b = FillAray(a); // заполнили случ. числами
-int summa=CountSum(b); // посчитали сумму членов массива на нечетных позициях
+int summa = CountSum(b); // посчитали сумму членов массива на нечетных позициях
 PrintAray(b);
 Console.Write($" - >  {summa}");

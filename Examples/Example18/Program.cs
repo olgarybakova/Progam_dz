@@ -17,48 +17,42 @@ double[] GenerAray(int Col)  // 1.метод создания массива и�
 
 double[] FillAray(double[] arr)  // 2.генерирования массива случайными  числами, пусть до 2-х значных
 {
-    int count = arr.Length;
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < arr.Length; i++)
     {
         arr[i] = Random.Shared.Next(-100, 100);
     }
     return arr;
 }
- double MinArray(double[] array1)// находим минимальное значение в массиве
+double MinArray(double[] array1)// находим минимальное значение в массиве
 {
-int count = array1.Length;
-double Min=array1[0];
-    for (int i = 0; i < count; i++)
+    double Min = array1[0];
+    for (int i = 0; i < array1.Length; i++)
     {
-        if (Min> array1[i])
-            Min=array1[i];
+        if (Min > array1[i])
+            Min = array1[i];
     }
     return Min;
- }
+}
 
 double MaxArray(double[] array1)// находим максимальное значение в массиве
 {
-int count = array1.Length;
-double Max=array1[0];
-    for (int i = 0; i < count; i++)
+    double Max = array1[0];
+    for (int i = 0; i < array1.Length; i++)
     {
         if (Max < array1[i])
-            Max=array1[i];
+            Max = array1[i];
     }
     return Max;
- }
+}
 
 void PrintAray(double[] aray)  // метод печати массива 
 {
-    int Num1 = aray.Length;
+    Console.Write("[");
+    for (int i = 0; i < aray.Length; i++)
     {
-        Console.Write("[");
-        for (int i = 0; i < Num1; i++)
-        {
-            Console.Write($"{aray[i]} ");
-        }
-        Console.Write($"{aray[Num1 - 1]}] ");
+        Console.Write($"{aray[i]} ");
     }
+    Console.Write($"{aray[aray.Length - 1]}] ");
 }
 
 Console.Clear();
@@ -68,8 +62,8 @@ int num = Convert.ToInt32(Console.ReadLine());
 
 double[] a = GenerAray(num); //создали пустой массив
 double[] b = FillAray(a); // заполнили случ. числами
-double min=MinArray(b); // нашли минимальный элемент массива
-double max=MaxArray(b); // нашли максимальный элемент массива
+double min = MinArray(b); // нашли минимальный элемент массива
+double max = MaxArray(b); // нашли максимальный элемент массива
 PrintAray(b);
-Console.Write($" - >  {max-min}"); //разница между максимальным и минимальным
+Console.Write($" - >  {max - min}"); //разница между максимальным и минимальным
 

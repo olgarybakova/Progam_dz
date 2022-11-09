@@ -16,8 +16,7 @@ int[] GenerAray(int Col)  // 1.метод создания массива из �
 
 int[] FillAray(int[] arr)  // 2.генерирования массива случайными 3х значными числами
 {
-    int count = arr.Length;
-    for (int i = 0; i < count; i++)
+     for (int i = 0; i < arr.Length; i++)
     {
         arr[i] = new Random().Next(100, 1000);
     }
@@ -27,8 +26,7 @@ int[] FillAray(int[] arr)  // 2.генерирования массива слу
 int CountDouble(int[] array) //3.Метод подсчета количества четных чисел
 {
     int index = 0;
-    int count = array.Length;
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < array.Length; i++)
     {
         if (array[i] % 2 == 0)
         {
@@ -40,14 +38,13 @@ int CountDouble(int[] array) //3.Метод подсчета количеств�
 
 void PrintAray(int[] aray)  // 4.метод печати массива 
 {
-    int Num1 = aray.Length;
-    {
+        {
         Console.Write("[");
-        for (int i = 0; i < Num1 - 1; i++)
+        for (int i = 0; i < aray.Length - 1; i++)
         {
             Console.Write($"{aray[i]}, ");
         }
-        Console.Write($"{aray[Num1 - 1]}] ");
+        Console.Write($"{aray[aray.Length - 1]}] ");
     }
 }
 
