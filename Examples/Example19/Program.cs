@@ -19,9 +19,9 @@
 
 int SetQuantity(string text) //1. Метод: Предложить ввести пользователю число M
 {
-Console.Clear();
-Console.WriteLine(text);
-return Convert.ToInt32(Console.ReadLine());
+    Console.Clear();
+    Console.WriteLine(text);
+    return Convert.ToInt32(Console.ReadLine());
 }
 
 int[] CreatAray(int Col)  // 2.метод создания массива из заданной размерности
@@ -29,23 +29,33 @@ int[] CreatAray(int Col)  // 2.метод создания массива из �
     return new int[Col];
 }
 
-int[]  EnterNumbArray(int[] arr) //3.Генерация массива через ввод в консоле
+int[] EnterNumbArray(int[] arr) //3.Генерация массива через ввод в консоле
 {
-Console.WriteLine($"Введите любые  числа в количестве {arr.Length} шт. от -100 до 100 ");
-for (int i = 0; i < arr.Length; i++)
+    Console.WriteLine($"Введите любые  числа в количестве {arr.Length} шт.");
+    for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = Convert.ToInt32(Console.ReadLine());
+        int x1;
+        Console.Write($"Введите {i+1}-е число : ");
+        if (!int.TryParse(Console.ReadLine(), out x1)) // проверка на корректность ввода
+        {
+            do
+            {
+                Console.WriteLine("неправильный ввод");
+                Console.Write($"введите {i+1}-е число: ");
+            } while (!int.TryParse(Console.ReadLine(), out x1));
+        }
+        arr[i] = x1; 
     }
     return arr;
 }
 void PrintAray(int[] aray)  // 4.метод печати массива 
 {
-    for (int i = 0; i < aray.Length-1; i++)
+    for (int i = 0; i < aray.Length - 1; i++)
     {
         Console.Write($"{aray[i]}, ");
     }
-    Console.Write($"{aray[aray.Length-1]}, ");
- }
+    Console.Write($"{aray[aray.Length - 1]} ");
+}
 
 int CountGreatZero(int[] arr2) //3. Метод: Перебор массива размерностью М, в котором счетчик по условию >0
 {
@@ -54,17 +64,17 @@ int CountGreatZero(int[] arr2) //3. Метод: Перебор массива р
     {
         if (arr2[i] > 0)
         {
-            index+=1;
+            index += 1;
         }
     }
-   return index;
+    return index;
 }
 
-int Num=SetQuantity("Сколько готовы ввести чисел?");//ввод количества ввода с экрана
-int[] a=CreatAray(Num); // нулевый массив создали
+int Num = SetQuantity("Введите количество чисел, которые будете вводить");//ввод количества ввода с экрана
+int[] a = CreatAray(Num); // нулевый массив создали
 
-int[] b=EnterNumbArray(a); // массив генерировали с консоли ввода
+int[] b = EnterNumbArray(a); // массив генерировали с консоли ввода
 int Res = CountGreatZero(b); // подсчет элементов массива, значение которых больше 0
- PrintAray(b); 
- Console.Write($" - >  {Res}");
+PrintAray(b);
+Console.Write($" - >  {Res}");
 
